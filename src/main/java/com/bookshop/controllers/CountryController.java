@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.bookshop.model.Country;
 import com.bookshop.service.CountryService;
@@ -29,35 +30,26 @@ public class CountryController {
 	@Autowired
 	private CountryService countryService;
 
-/*	@RequestMapping(value="/manageCountries", method=RequestMethod.GET)
-	public String showManageCountries(Model uiModel) {
-		logger.info("Listing Countries");
-
-		List<Country> country = countryService.findAll();
-//		listCountries(countries);
-		
-		uiModel.addAttribute("countryList", country);
-
-		logger.info("No of countries :");
-		return "manageCountries";
-	}*/
-
+/*
 	public static void listCountries(List<Country> countries){
 		System.out.println("Listing Countries");
 		for(Country country: countries){
 			System.out.println(country.getCountry());
 		}
-	}
+	}*/
 	
 	@RequestMapping("/manageCountries")
-    public String showManageCountries(Map<String, Object> map) {
-        map.put("country", new Country());
-        map.put("countryList", countryService.findAll());
+    public String showManageCountries(Model uiModel) {
+		logger.info("Listing Countries");
+		uiModel.addAttribute("country", new Country());
+		uiModel.addAttribute("countryList", countryService.findAll());
+
         return "manageCountries";
     }
 
     @RequestMapping(value = "/saveCountry", method = RequestMethod.POST)
-    public String saveCountry(Map<String, Object> map, @ModelAttribute("country") Country country, @Valid Country countryValid, BindingResult result) {
+    public String saveCountry(Model uiModel, @ModelAttribute("country") Country country, @Valid Country countryValid, BindingResult result) {
+    	logger.info("Save country");
         if (result.hasErrors()) {
             return "manageCountries";
         } else {
@@ -65,28 +57,29 @@ public class CountryController {
                 countryService.save(country);
                 return "redirect:/admin/manageCountries";
             } catch (ConstraintViolationException exp) {
-                map.put("dbError", exp.getMessage());
+            	uiModel.addAttribute("dbError", exp.getMessage());
                 return "manageCountries";
             }
         }
     }
 
     @RequestMapping("/deleteCountry/{countryNo}")
-    public String deleteCountry(Map<String, Object> map, @PathVariable("countryNo") Integer countryNo) {
+    public String deleteCountry(Model uiModel, @PathVariable("countryNo") Integer countryNo) {
+    	logger.info("Delete Country");
         try {
         	countryService.delete(countryNo);
-//            countryService.removeCountry(countryNo);
             return "redirect:/admin/manageCountries";
         } catch (DataIntegrityViolationException exp) {
-            map.put("dbError", "Cannot delete a parent row.");
-            map.put("country", new Country());
+        	uiModel.addAttribute("dbError", "Cannot delete a parent row.");
+        	uiModel.addAttribute("country", new Country());
             return "manageCountries";
         }
     }
     
     @RequestMapping("/editCountry/{countryNo}")
-    public String editCountry(Map<String, Object> map, @PathVariable("countryNo") Integer countryNo) {
-        map.put("country", countryService.findById(countryNo));
+    public String editCountry(Model uiModel, @PathVariable("countryNo") Integer countryNo) {
+    	logger.info("Edit Country");
+    	uiModel.addAttribute("country", countryService.findById(countryNo));
         return "manageCountries";
     }
 }

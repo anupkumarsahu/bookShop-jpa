@@ -74,8 +74,8 @@
                 <c:forEach items="${countryList}" var="country">
                     <tr>
                         <td>${country.country}</td>
-                        <td><a href="/BookShop/admin/deleteCountry/${country.countryNo}"><img title="Click to delete" src="/BookShop/images/delete.jpg"/></a></td>
-                        <td><a href="/BookShop/admin/editCountry/${country.countryNo}"><img title="Click to edit" src="/BookShop/images/edit.jpg"/></a></td>
+                        <td><a href="/BookShop/admin/deleteCountry/${country.countryNo}"><img title="Click to delete" src="/BookShop/images/Delete.png"/></a></td>
+                        <td><a href="/BookShop/admin/editCountry/${country.countryNo}"><img title="Click to edit" src="/BookShop/images/Edit.png"/></a></td>
                     </tr>
                 </c:forEach>
             </table>

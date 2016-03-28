@@ -24,7 +24,7 @@ public class CountrySample {
 		System.out.println("");
 		System.out.println("Listing contacts without details:");
 		for (Country country: countries) {
-		System.out.println(country);
+		System.out.println("Country No :"+country.getCountryNo()+ " Country :"+country.getCountry());
 		System.out.println();
 		}
 		}

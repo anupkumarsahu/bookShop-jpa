@@ -5,9 +5,12 @@ import java.util.Map;
 import javax.validation.ConstraintViolationException;
 import javax.validation.Valid;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -21,20 +24,23 @@ import com.bookshop.service.StateService;
 @RequestMapping("/admin")
 public class StateController {
 
+	final Logger logger = LoggerFactory.getLogger(StateController.class);
+	
 	@Autowired
 	private StateService stateService;
 
 	@RequestMapping("/manageStates")
-	public String showManagedStates(Map<String, Object> map) {
-		map.put("state", new State());
-		map.put("stateList", stateService.findAll());
+	public String showManagedStates(Model uiModel) {
+		logger.info("Listing States");
+		uiModel.addAttribute("state", new State());
+		uiModel.addAttribute("stateList", stateService.findAll());
 		return "manageStates";
 	}
 
 	@RequestMapping(value="/saveState", method=RequestMethod.POST)
-	public String saveState(Map<String, Object> map, @ModelAttribute("state") State state, @Valid State stateValid,
+	public String saveState(Model uiModel, @ModelAttribute("state") State state, @Valid State stateValid,
 			BindingResult result) {
-
+		logger.info("Save States");
 		if(result.hasErrors()){
 			return "manageStates";
 		} else {
@@ -42,27 +48,29 @@ public class StateController {
 				stateService.save(state);
 				return "redirect:/admin/manageStates";
 			} catch (ConstraintViolationException e) {
-				map.put("dbError", e.getMessage());
+				uiModel.addAttribute("dbError", e.getMessage());
 				return "manageStates";
 			}
 		}
 	}
 	
 	@RequestMapping("/deleteState/{stateNo}")
-	public String deleteState(Map<String, Object> map, @PathVariable("stateNo") Integer stateNo){
+	public String deleteState(Model uiModel, @PathVariable("stateNo") Integer stateNo){
+		logger.info("Delete States");
 		try {
 			stateService.delete(stateNo);
 			return "redirect:/admin/manageStates";
 		} catch (DataIntegrityViolationException e) {
-			map.put("dbError", "Cannot delete a parent row");
-			map.put("state", new State());
+			uiModel.addAttribute("dbError", "Cannot delete a parent row");
+			uiModel.addAttribute("state", new State());
 			return "manageStates";
 		}
 	}
 	
 	@RequestMapping("/editState/{stateNo}")
-	public String editState(Map<String, Object> map, @PathVariable("stateNo") Integer stateNo){
-		map.put("state", stateService.findById(stateNo));
+	public String editState(Model uiModel, @PathVariable("stateNo") Integer stateNo){
+		logger.info("Edit States");
+		uiModel.addAttribute("state", stateService.findById(stateNo));
 		return "manageStates";
 	}
 }
