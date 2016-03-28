@@ -1,0 +1,416 @@
+html {
+    overflow-y: scroll;
+    overflow-x: auto;
+    height:100%;
+}
+
+body {
+    width: 95%;
+    height:100%;
+    font-family: helvetica, arial, sans-serif;
+    font-size: 12px; 
+    color: #333;
+    text-decoration: none;
+    margin: 30px; 
+    padding: 0;
+    /*background: url(../images/chess.jpg) no-repeat center center fixed;*/
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+} 
+
+img {
+    border: none;
+} 
+
+fieldset {
+    padding: 10px 10px; 
+    border: 1px solid #663366;
+    -moz-border-radius: 8px;
+    border-radius: 8px;
+}
+
+legend {
+    background: #663366;
+    color:#fff;
+    border: solid 1px black;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    border-radius: 8px;
+    padding: 6px;
+}
+
+#bodyDiv {
+    position: absolute;
+    background-image: url(../images/mainbg.png);
+    background-repeat:repeat;
+    width:95%;
+}
+
+#maincontentDiv {
+    float:left;
+    height:100%;
+    width:100%;
+    background: white;
+    margin:0px;padding:0px;
+    margin-left:15px;
+    padding-left:0px;
+    padding-top:15px;
+    padding-bottom:15px;
+}
+
+#headerDiv {
+    height:138px;
+    background-image: url(../images/transparent-bg.png);
+    width:100%;
+    border: 2px solid #000;
+    -moz-border-radius: 8px;
+    border-radius: 8px;
+    -moz-border-bottom-left-radius: 0px;
+    -moz-border-bottom-right-radius: 0px;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+}
+
+#welcome {
+    float:left;
+    color:white;
+    padding-left: 20px;
+}
+
+#searchBar {
+    text-align: right;
+    height: 50px;
+    width:100%;
+    line-height: 5px;
+}
+
+.search-text {	
+    padding: 0 30px 0 10px; margin: 0; border: 0;
+    line-height:40px;
+    background: #ffffff;
+    height:43px;
+    background:url(../images/text-input-bg.png)  no-repeat;
+    font-family: sans-serif; font-size: 25px; color: #333333; 
+}
+
+.search-button {
+    height: 28px; padding: 0 30px 0 10px; margin: 0; border: 0;
+    width:135px;
+    height:43px;
+    font-family: sans-serif; font-size: 14px; color: #333333; 
+    background: #ffffff;
+    line-height:28px;
+    vertical-align: top;
+    background:url(../images/search-button.png)  no-repeat center;
+}
+
+#portlets-head-main {
+    text-align: left; 
+    font-size: 16px!important;
+    color: #333333; 
+
+    background: #D8D8D8; 
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#D8D8D8'); /* for IE */
+
+    background: -webkit-gradient(linear, left top, left bottom, from(#ffffff), to(#D8D8D8)); /* for webkit browsers */
+    background: -moz-linear-gradient(top,  #ffffff,  #D8D8D8); /* for firefox 3.6+ */ 
+    border: 1px solid #D8D8D8;
+    -moz-border-top-right-radius: 4px;
+    border-top-right-radius: 4px;
+
+    padding: 5px 0px 5px 5px;
+} 
+
+#portlets-content-main {
+  padding: 10px 10px; 
+
+  border: 2px;
+  -moz-box-shadow: 4px 4px 4px #663366;
+  -webkit-box-shadow: 4px 4px 4px #663366;
+  box-shadow: 4px 4px 4px #663366;
+
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+} 
+
+#footer {
+    color:white;
+    margin-top: 20px;
+    float:left;
+    position:relative;
+    width: 100%;
+    background-image: url(../images/transparent-bg.png);
+    border-radius: 8px;
+    -moz-border-top-left-radius: 0px;
+    -moz-border-top-right-radius: 0px;
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+}
+
+#footer a{
+    text-decoration: none;
+    color: #fff;
+}
+
+#copyright {
+    text-align:right;
+}
+
+#copyright span {
+    line-height:25px;
+}
+
+#footerContainer {
+    width:100%;
+    padding: 20px 0 20px 0;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+a {
+    text-decoration: none;
+    color: #660000;
+    font-family: Georgia, serif;
+}
+
+a:hover {
+    text-decoration: none;
+    color: #FF0000;
+    font-family: Georgia, serif;
+}
+
+.label {
+    font-family: "Arial", Times, serif;
+    font-size: 16px;
+    font-weight: bold;
+    color: #990000;
+}
+
+.content {
+    font-family: "Arial", Times, serif;
+    font-size: 16px;
+    font-weight: normal;
+    color: #666666;
+}
+
+.categoriesNames {
+    font-family: Verdana,Arial,Helvetica,sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    color: #990000;
+    text-align: left;
+    vertical-align: top; 
+}
+
+.groovybutton {
+    font-size:15px;
+    font-weight:bold;
+    color:#CC0000;
+    background-color:#FFFFFF;
+    filter:progid:DXImageTransform.Microsoft.Gradient(GradientType=0,StartColorStr='#ffCC99FF',EndColorStr='#ffFFFFCC');
+    border-top-style:groove;
+    border-top-color:#FF0099;
+    border-bottom-style:groove;
+    border-bottom-color:#FF0099;
+    border-left-style:groove;
+    border-left-color:#FF0099;
+    border-right-style:groove;
+    border-right-color:#FF0099;
+}
+
+INPUT, SELECT {
+    font: 14px/20px Arial, Helvetica, sans-serif;
+    color: #0b0b0b;
+    border: #c3bca4 1px solid;
+    height: 22px;
+    background-color: #efebde;
+}         
+
+.hrLine {
+    height: 20px;
+    background: url('../images/hr.jpg') repeat-x;
+}
+
+.view {
+    border: 0px solid blue;
+    border-collapse: collapse;
+}
+
+.view th {
+    background-color: #EFEBDE;
+    color: #666;
+    text-align: left;
+    border: 1px solid white;
+    padding: 5px;
+}
+
+.view td {
+    padding: 3px;
+}
+
+.view tr.odd {
+    background-color: #fafbff;
+}
+
+.view tr.even {
+    background-color: #EFEBDE;
+}
+
+.heading {
+    font-weight: bold;
+    font-size: 12px;
+    color: #663366;
+    font-family: "Trebuchet MS";
+}
+
+.spanHeader {
+    font: 24px/30px Georgia, serif;
+    width:300px;
+    color: #786e4e;
+    height:37px;
+    text-align: left;
+    vertical-align: top;
+    padding-top: 20px;
+    padding-left: 50px;
+}
+
+.thankYouContent {
+    vertical-align: top;
+    text-align: left;
+    width: 300px;
+}
+
+.information {
+    font-weight: normal;
+    font-size: 13px;
+    color: #333333;
+    font-family: "Trebuchet MS";
+    text-decoration: none;
+    text-align: right;
+    vertical-align: top;
+    padding-top: 20px;
+    padding-right: 70px;
+}
+
+.mandatory {
+    font-weight: bold;
+    font-size: 13px;
+    color: #0099ff;
+    font-family: "Trebuchet MS";
+}
+
+.error {
+    color: red;
+}
+
+.searchName {
+    font-family: "Arial", Times, serif;
+    font-size: 15px;
+    font-weight: bold;
+    color: blue;
+    line-height: 20px;
+}
+
+.searchYear {
+    font-family: "Arial", Times, serif;
+    font-size: 13px;
+    font-weight: bold;
+    color: green;
+    line-height: 30px;
+}
+
+.searchSynopsis {
+    font-family: "Arial", Times, serif;
+    font-size: 13px;
+    font-weight: bold;
+    color: #666666;
+    line-height: 18px;
+}
+
+.centerAlign {
+    text-align: center;
+}
+
+.allCategoriesTable {
+    position: relative;
+    float: left;
+}
+
+.imagePointer {
+    cursor: pointer;
+}
+
+.checkoutBody {
+    background-color: red;
+}
+
+.welcomeMessage {
+    color: aqua;
+}
+
+.rightAlign {
+    text-align: right;
+}
+
+.topAlign {
+    vertical-align: top;
+}
+
+.leftAlign {
+    text-align: left;
+}
+
+.loginButton {
+    background: url('/BookShop/images/login.jpg') no-repeat;
+    border: 0;
+    cursor: pointer;
+    width: 68px;
+    height: 40px;
+}
+
+.popularSearch1 {
+    font-size: 10px;
+    cursor: pointer;
+}
+
+.popularSearch2 {
+    font-size: 12px;
+    cursor: pointer;
+}
+
+.popularSearch3 {
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.popularSearch4 {
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.popularSearch5 {
+    font-size: 25px;
+    cursor: pointer;
+}
+
+.spanShowDetails {
+    font: 32px/34px Georgia,serif;
+    width: 300px;
+    color: #990000;
+    height: 37px;
+}
+
+.showBookList {
+    vertical-align: top;
+    text-align: left;
+    cursor: pointer;
+}
+
+.showCartList {
+    vertical-align: top;
+    border: 1px solid #990033;
+    background-color: #FFFF99;
+}
+
