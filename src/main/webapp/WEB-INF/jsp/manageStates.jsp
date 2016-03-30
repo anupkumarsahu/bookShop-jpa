@@ -6,7 +6,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>BookShop[Sharanam & Vaishali Shah] - Manage States</title>
+        <title>BookShop[Anup] - Manage States</title>
         <link rel="stylesheet" href="/BookShop/css/admin.css" type="text/css">
     </head>
     <body>
@@ -75,8 +75,8 @@
                 <c:forEach items="${stateList}" var="state">
                     <tr>
                         <td>${state.state}</td>
-                        <td><a href="/BookShop/admin/deleteState/${state.stateNo}"><img title="Click to delete" src="/BookShop/images/delete.jpg"/></a></td>
-                        <td><a href="/BookShop/admin/editState/${state.stateNo}"><img title="Click to edit" src="/BookShop/images/edit.jpg"/></a></td>
+                        <td><a href="/BookShop/admin/deleteState/${state.stateNo}"><img title="Click to delete" src="/BookShop/images/Delete.png"/></a></td>
+                        <td><a href="/BookShop/admin/editState/${state.stateNo}"><img title="Click to edit" src="/BookShop/images/Edit.png"/></a></td>
                     </tr>
                 </c:forEach>
             </table>

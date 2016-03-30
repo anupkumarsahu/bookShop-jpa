@@ -1,5 +1,7 @@
 package com.bookshop.model;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -13,7 +15,7 @@ import org.hibernate.validator.constraints.NotEmpty;
 import com.mysql.jdbc.Blob;
 @Entity
 @Table(name="BOOKS")
-public class Book {
+public class Book implements Serializable{
 
 	@Id
 	@GeneratedValue
